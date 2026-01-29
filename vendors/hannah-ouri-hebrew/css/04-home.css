@@ -1,0 +1,712 @@
+/* ============================================
+   PAGE D'ACCUEIL ÉLÉGANTE
+   ============================================ */
+
+.home-header {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #F5EEE8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+/* Éléments floraux décoratifs pour la page d'accueil */
+.home-header .floral-decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.home-header .floral-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.home-header .floral-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.home-header::before {
+    display: none;
+}
+
+.home-header::after {
+    display: none;
+}
+
+.home-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 75vh;
+    padding: 0 20px 80px 20px;
+    margin-top: 0; /* CORRECTION: Marge normale */
+    gap: 0; /* CORRECTION: Gap à 0, l'espacement est géré par les marges individuelles */
+}
+
+.logo-section {
+    flex: 0 0 auto;
+    padding-top: 0;
+    margin-bottom: 0 !important;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Logo SVG avec couleur violet-primary */
+.logo-image {
+    width: 220px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 3rem auto; /* Espace logo → Hannah & Ouri */
+    filter: drop-shadow(0 6px 15px rgba(var(--violet-primary-rgb), 0.3));
+}
+
+.home .mairie-couple-names {
+    font-family: 'Alice', serif;
+    font-size: 2rem;
+    letter-spacing: 0 !important;
+    color: #AC9DD7;
+    margin-top: 2rem;
+    margin-bottom: 3rem; /* Espace Hannah & Ouri → décompte */
+}
+
+.countdown-section {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 0;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    gap: 3rem; /* Espace décompte → bouton (égal aux autres) */
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.monogram {
+    font-size: 7.5rem;
+    font-family: 'Great Vibes', cursive;
+    background: linear-gradient(
+        135deg, 
+        rgba(240, 210, 230, 1) 0%,
+        rgba(220, 190, 220, 1) 25%,
+        rgba(180, 150, 190, 1) 50%,
+        rgba(220, 190, 220, 1) 75%,
+        rgba(240, 210, 230, 1) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0;
+    filter: drop-shadow(0 6px 15px rgba(230, 210, 230, 0.3));
+    letter-spacing: 5px;
+    position: relative;
+}
+
+/* ============================================
+   COMPTEUR ÉLÉGANT
+   ============================================ */
+
+.countdown {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    max-width: 800px;
+    width: 100%;
+    gap: 0;
+}
+
+/* HOURS centré sur la page, DAYS et MINUTES espacés par rapport à HOURS */
+.countdown-item:nth-child(1) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 45px;
+}
+
+.countdown-item:nth-child(2) {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-item:nth-child(3) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 55px;
+}
+
+.countdown-item {
+    text-align: center;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: 80px;
+    width: 80px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: visible;
+    border: none;
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-family: 'Alice', serif !important;
+    font-weight: 400;
+    color: #000;
+    position: relative;
+    z-index: 1;
+    animation: pulseNumbers 3s ease-in-out infinite;
+}
+
+.countdown-label {
+    font-size: 1.5rem;
+    font-family: 'Alice', serif !important;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+}
+
+/* ============================================
+   BOUTON "VOIR L'INVITATION"
+   ============================================ */
+
+.home-button {
+    background: #AC9DD7;
+    background-size: 200% 100%;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-family: 'Alice', serif !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0; /* Espacement géré par le gap de countdown-section */
+    position: relative;
+    z-index: 10; /* CORRECTION: Assurer que le bouton soit cliquable */
+    overflow: hidden;
+    width: auto;
+    min-width: auto !important;
+    display: inline-block;
+    min-height: auto;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 
+        0 15px 45px rgba(172, 157, 215, 0.35),
+        0 8px 25px rgba(172, 157, 215, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    pointer-events: auto; /* CORRECTION: S'assurer que le bouton reçoit les clics */
+}
+
+.home-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg, 
+        transparent 0%,
+        rgba(255, 255, 255, 0.25) 50%,
+        transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+}
+
+.home-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.home-button:hover {
+    background: #9b8bc4;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 25px 65px rgba(172, 157, 215, 0.4),
+        0 15px 40px rgba(172, 157, 215, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    letter-spacing: 1.5px;
+}
+
+.home-button:hover::before {
+    transform: translateX(100%);
+}
+
+.home-button:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.home-button:active {
+    transform: translateY(-2px) scale(1);
+}
+
+/* Décorations subtiles rose pâle et violet */
+.lemon-decoration {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(250, 240, 250, 0.25), rgba(240, 220, 240, 0.18), rgba(230, 210, 235, 0.12));
+    opacity: 0.5;
+    animation: float 4s ease-in-out infinite;
+    box-shadow: 0 8px 25px rgba(240, 220, 240, 0.12);
+    border: 1px solid rgba(230, 210, 230, 0.15);
+}
+
+.lemon-decoration::before {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: rgba(230, 210, 230, 0.5);
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.lemon-1 { 
+    top: 30px; 
+    left: 30px; 
+    animation-delay: 0s;
+}
+
+.lemon-2 { 
+    top: 60px; 
+    right: 40px; 
+    animation-delay: 1.5s;
+    width: 50px;
+    height: 50px;
+}
+
+.lemon-3 { 
+    bottom: 50px; 
+    left: 50px; 
+    animation-delay: 3s;
+    width: 45px;
+    height: 45px;
+}
+
+/* ============================================
+   RESPONSIVE - PAGE D'ACCUEIL
+   ============================================ */
+
+/* Tablettes */
+@media (max-width: 768px) {
+    .home-header {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-color: #F5EEE8;
+        overflow: hidden;
+    }
+    
+    .home-content {
+        min-height: 70vh;
+        gap: 4px; /* CORRECTION: Réduit pour rapprocher les éléments */
+        padding: 50px 30px;
+    }
+    
+    .logo-section {
+        padding-top: 60px;
+        margin-bottom: 3.5rem;
+    }
+    
+    .monogram {
+        font-size: 4.5rem;
+        margin-bottom: 0;
+    }
+    
+    .countdown-section {
+        padding-bottom: 0;
+        margin-top: 0;
+        padding-top: 0;
+        gap: 3rem !important; /* Espacement égal partout */
+    }
+
+    .countdown {
+        gap: 0;
+        flex-wrap: nowrap;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+        width: 70px;
+        padding: 0;
+        flex: 0 0 auto;
+    }
+
+    .countdown-item:nth-child(1) {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 35px;
+        padding-left: 0;
+    }
+
+    .countdown-item:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .countdown-item:nth-child(3) {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 45px;
+        padding-right: 0;
+    }
+
+    .countdown-number {
+        font-size: 1.8rem;
+        font-family: 'Alice', serif !important;
+    }
+
+    .countdown-label {
+        font-size: 1.3rem;
+        font-family: 'Alice', serif !important;
+    }
+
+    .home-button {
+        padding: 14px 18px;
+        font-size: 1rem;
+        margin-top: 0 !important; /* Espacement géré par gap */
+        width: auto;
+        min-width: auto;
+    }
+}
+
+/* Téléphones */
+/* Media query pour max-width: 480px */
+@media (max-width: 480px) {
+    .home-header {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-color: #F5EEE8;
+        overflow: hidden;
+        justify-content: flex-start;
+        padding-top: 10vh;
+    }
+
+    .logo-section {
+        padding-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .home-content {
+        min-height: auto;
+        gap: 0 !important;
+        padding: 0 20px 35px 20px !important;
+        margin-top: 0 !important;
+    }
+
+    .logo-image {
+        margin: 0 auto 3rem auto !important; /* Espacement égal partout */
+    }
+
+    .home .mairie-couple-names {
+        margin-top: 2rem !important;
+        margin-bottom: 3rem !important; /* Espacement égal partout */
+    }
+
+    .countdown-section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        gap: 3rem !important; /* Espacement égal partout */
+    }
+
+    .monogram {
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+    }
+
+    /* Compte à rebours : HOURS centré, DAYS et MINUTES de part et d'autre */
+    .countdown {
+        display: flex;
+        gap: 0;
+        margin: 0 auto;
+        max-width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .countdown-item:nth-child(1) {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 30px;
+        padding-left: 0;
+    }
+
+    .countdown-item:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .countdown-item:nth-child(3) {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 40px;
+        padding-right: 0;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+        width: 60px;
+        padding: 0;
+        flex-shrink: 0;
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+        line-height: 1.2;
+        font-family: 'Alice', serif !important;
+    }
+
+    .countdown-label {
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+        margin-top: 8px;
+        font-family: 'Alice', serif !important;
+    }
+    
+    .home-button {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+        width: auto;
+        min-width: auto !important;
+        margin-top: 0 !important; /* Espacement géré par gap */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Masquer les décorations sur mobile pour plus d'espace */
+    .lemon-decoration {
+        display: none;
+    }
+}
+
+/* Petits téléphones (iPhone SE, etc.) - Note: iPhone SE (380-390px) et iPhone 13 mini (≤379px)
+   sont gérés dans 10-responsive.css avec des règles plus spécifiques */
+@media (max-width: 375px) {
+    .home-header {
+        padding: 30px 15px;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .logo-section {
+        padding-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .home-content {
+        gap: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .logo-image {
+        margin: 0 auto 3rem auto !important; /* Espacement égal partout */
+    }
+
+    .home .mairie-couple-names {
+        margin-top: 2rem !important;
+        margin-bottom: 3rem !important; /* Espacement égal partout */
+    }
+
+    .countdown-section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        gap: 3rem !important; /* Espacement égal partout */
+    }
+
+    .countdown {
+        gap: 0;
+        margin: 0 auto !important;
+    }
+
+    .countdown-item:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 24px;
+    }
+
+    .countdown-item:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .countdown-item:nth-child(3) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 32px;
+    }
+
+    .countdown-number {
+        font-family: 'Alice', serif !important;
+    }
+
+    .countdown-label {
+        font-family: 'Alice', serif !important;
+    }
+
+    .home-button {
+        margin-top: 0 !important; /* Espacement géré par gap */
+    }
+
+    .monogram {
+        font-size: 3rem;
+    }
+
+    .countdown-number {
+        font-size: 1.2rem;
+    }
+
+    .countdown-label {
+        font-size: 1rem;
+    }
+}
+
+/* iPhone en mode portrait - optimisation supplémentaire */
+@media (max-width: 390px) and (max-height: 844px) {
+    .home-header {
+        padding: 30px 12px;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .logo-section {
+        padding-top: 0;
+        margin-bottom: 0;
+    }
+
+    .logo-image {
+        margin: 0 auto 3rem auto !important; /* Espacement égal partout */
+    }
+
+    .countdown-section {
+        padding-bottom: 0;
+        margin-top: 0;
+        padding-top: 0;
+        gap: 3rem !important; /* Espacement égal partout */
+    }
+
+    .home-content {
+        min-height: 80vh;
+        gap: 0;
+    }
+
+    .monogram {
+        font-size: 2.8rem;
+        margin-bottom: 0;
+    }
+
+    .countdown {
+        margin: 0 auto;
+    }
+
+    .home-button {
+        padding: 16px 35px;
+        margin-top: 0 !important; /* Espacement géré par gap */
+    }
+}

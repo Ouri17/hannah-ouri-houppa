@@ -1,0 +1,304 @@
+/* ============================================
+   NAVIGATION ÉLÉGANTE
+   ============================================ */
+
+.navbar {
+    background: linear-gradient(135deg, rgba(245, 238, 232, 0.98), rgba(245, 238, 232, 0.95));
+    backdrop-filter: blur(15px);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(245, 238, 232, 0.5);
+    display: none;
+    -webkit-backdrop-filter: blur(15px);
+    overflow: visible; /* CORRECTION: Permet au logo de dépasser sans agrandir la barre */
+}
+
+.nav-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 2rem;
+    font-family: 'Great Vibes', cursive;
+    background: linear-gradient(135deg, var(--violet-primary), var(--violet-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(var(--violet-primary-rgb), 0.3);
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    overflow: visible; /* CORRECTION: Permet au logo de dépasser sans agrandir la barre */
+}
+
+.nav-logo:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(var(--violet-primary-rgb), 0.4));
+    letter-spacing: 3px;
+}
+
+.nav-logo:active {
+    transform: scale(1.02);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-menu li {
+    cursor: pointer;
+    color: #3a3230;
+    font-weight: 500;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 10px 0;
+    position: relative;
+}
+
+.nav-menu li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--violet-primary), var(--violet-dark));
+    transform: translateX(-50%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu li:hover {
+    color: var(--violet-primary);
+    transform: translateY(-2px);
+}
+
+.nav-menu li:hover::after {
+    width: 100%;
+}
+
+.nav-menu li.active {
+    color: var(--violet-primary);
+    font-weight: 600;
+}
+
+.nav-menu li.active::after {
+    width: 100%;
+}
+
+/* Menu mobile */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    padding: 10px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-menu-btn span {
+    width: 28px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--violet-primary), var(--violet-dark));
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(245, 238, 232, 0.98), rgba(245, 238, 232, 0.98));
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid rgba(245, 238, 232, 0.6);
+}
+
+.mobile-nav.active {
+    display: block;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.mobile-nav li {
+    padding: 18px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    color: #3a3230;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav li:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav li:active {
+    background: rgba(var(--violet-primary-rgb), 0.1);
+    color: var(--violet-primary);
+}
+
+/* Logo dans la navigation */
+.nav-logo-image {
+    height: 40px; /* Hauteur de base */
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(var(--violet-primary-rgb), 0.2));
+    transition: all 0.3s ease;
+    transform: scale(1.75); /* CORRECTION: Agrandit visuellement le logo sans affecter la barre */
+    transform-origin: left center; /* CORRECTION: Agrandit depuis la gauche pour ne pas décaler */
+}
+
+.nav-logo:hover .nav-logo-image {
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(var(--violet-primary-rgb), 0.4));
+}
+
+/* ============================================
+   RESPONSIVE - NAVIGATION
+   ============================================ */
+
+/* Tablettes */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 0;
+    }
+    
+    .nav-content {
+        padding: 0 20px;
+    }
+    
+    .nav-logo {
+        font-size: 1.6rem;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+}
+
+/* Téléphones */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 12px 0;
+    }
+    
+    .nav-content {
+        padding: 0 15px;
+    }
+    
+    .nav-logo {
+        font-size: 1.4rem;
+    }
+}
+
+/* ============================================
+   BOUTON MUSIQUE FLOTTANT
+   ============================================ */
+
+.music-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #AC9DD7;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(172, 157, 215, 0.4);
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    background: #9b8bc4;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(172, 157, 215, 0.5);
+}
+
+.music-toggle:active {
+    transform: scale(0.95);
+}
+
+.music-toggle .music-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.music-toggle .music-on {
+    display: none;
+}
+
+.music-toggle.playing .music-off {
+    display: none;
+}
+
+.music-toggle.playing .music-on {
+    display: block;
+}
+
+.music-toggle.playing {
+    animation: pulse-music 2s infinite;
+}
+
+@keyframes pulse-music {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(172, 157, 215, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(172, 157, 215, 0.6);
+    }
+}
+
+/* Responsive pour le bouton musique */
+@media (max-width: 480px) {
+    .music-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .music-toggle .music-icon {
+        font-size: 1.3rem;
+    }
+}

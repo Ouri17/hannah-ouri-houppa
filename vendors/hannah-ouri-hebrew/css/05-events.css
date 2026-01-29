@@ -1,0 +1,592 @@
+/* ============================================
+   PAGE ÉVÉNEMENTS - HOUPPA UNIQUEMENT
+   ============================================ */
+
+/* ============================================
+   ÉLÉMENTS FLORAUX DÉCORATIFS
+   ============================================ */
+
+.floral-decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.floral-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.floral-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#houppa-section .floral-decor {
+    width: 100%;
+}
+
+/* ============================================
+   PAGE ÉVÉNEMENT - HOUPPA
+   ============================================ */
+
+.event-page {
+    background: linear-gradient(
+        135deg,
+        rgba(245, 238, 232, 0.98) 0%,
+        rgba(245, 238, 232, 0.95) 50%,
+        rgba(245, 238, 232, 0.98) 100%
+    );
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border-radius: 30px;
+    padding: 50px;
+    margin: 30px 0;
+    box-shadow:
+        0 25px 70px rgba(var(--violet-primary-rgb), 0.15),
+        0 10px 35px rgba(var(--violet-dark-rgb), 0.1),
+        0 0 0 1px rgba(245, 238, 232, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(var(--violet-primary-rgb), 0.2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        rgba(245, 238, 232, 0.8) 0%,
+        rgba(245, 238, 232, 0.9) 25%,
+        rgba(245, 238, 232, 0.8) 50%,
+        rgba(245, 238, 232, 0.9) 75%,
+        rgba(245, 238, 232, 0.8) 100%
+    );
+    background-size: 200% 100%;
+    border-radius: 30px 30px 0 0;
+    animation: shimmer 3s linear infinite;
+    z-index: 1;
+}
+
+.event-page::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 50% 0%,
+        rgba(245, 238, 232, 0.04) 0%,
+        transparent 60%
+    );
+    border-radius: 30px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Noms des parents/grands-parents */
+.parents-names {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin: 30px 0 40px 0;
+    font-family: 'Alice', serif;
+    font-size: 1rem;
+    color: #3a3230;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+}
+
+#houppa-section .parents-names,
+#houppa-section .parents-left,
+#houppa-section .parents-right {
+    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.95),
+                 0 0 15px rgba(255, 255, 255, 0.6);
+    color: #4a3a37;
+}
+
+.parents-left {
+    text-align: left !important;
+    padding-left: 20px;
+    justify-self: start;
+    align-self: start;
+}
+
+.parents-right {
+    text-align: right !important;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
+    justify-self: end;
+    align-self: start;
+}
+
+/* Noms du couple */
+.couple-names {
+    font-size: 2rem;
+    font-family: 'Alice', serif;
+    font-weight: normal;
+    color: #3a3230;
+    margin: 30px 0;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+}
+
+#houppa-section .couple-names {
+    color: #4a3a37;
+    margin: 15px 0;
+}
+
+/* Noms en hébreu */
+.hebrew-names {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    font-family: 'Alice', serif;
+    font-size: 1.3rem;
+    margin: 25px 0;
+    direction: ltr;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+#houppa-section .hebrew-names,
+#houppa-section .hebrew-name-left,
+#houppa-section .hebrew-name-right {
+    text-shadow: 1px 1px 8px rgba(255, 255, 255, 0.95),
+                 0 0 20px rgba(255, 255, 255, 0.6);
+    color: #4a3a37;
+}
+
+#houppa-section .hebrew-names {
+    margin: 12px 0;
+    font-family: 'Alice', serif !important;
+    justify-content: space-between !important;
+    padding: 0 10px;
+}
+
+.hebrew-name-right {
+    direction: rtl;
+    margin-left: auto;
+}
+
+.hebrew-name-left {
+    direction: rtl;
+    margin-right: auto;
+}
+
+#houppa-section .hebrew-name-left {
+    margin-right: auto !important;
+}
+
+#houppa-section .hebrew-name-right {
+    margin-left: auto !important;
+}
+
+/* Hommage aux grands-parents */
+.grandparents-tribute {
+    text-align: center;
+    font-family: 'Alice', serif;
+    font-size: 0.75rem;
+    color: #5a524f;
+    line-height: 1.6;
+    margin-top: 40px;
+    margin-bottom: 0;
+    padding: 20px 0px;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#houppa-section .grandparents-tribute {
+    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.95),
+                 0 0 15px rgba(255, 255, 255, 0.6);
+    color: #5a4a47;
+    margin-top: 8px !important;
+    margin-bottom: -20px !important;
+    padding: 15px 0px !important;
+    padding-bottom: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.event-header {
+    text-align: center;
+    margin-bottom: 0px;
+    padding-top: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+#houppa-section .event-header {
+    padding-top: 140px !important;
+    padding-bottom: 50px !important;
+    margin-bottom: 0 !important;
+}
+
+.event-title {
+    font-size: 3rem;
+    font-family: 'Alice', serif;
+    color: #3a3230;
+    margin-bottom: 25px;
+    letter-spacing: 4px;
+    font-weight: normal;
+    position: relative;
+    display: inline-block;
+}
+
+#houppa-section .event-title {
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.95),
+                 0 0 25px rgba(255, 255, 255, 0.7),
+                 1px 1px 4px rgba(0, 0, 0, 0.15);
+    color: #3a3230;
+    font-size: 3.2rem;
+    font-family: 'Charm', cursive;
+    margin-bottom: 30px;
+    letter-spacing: 5px;
+}
+
+.event-date {
+    font-size: 1.4rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: #6a5d5a;
+    margin-bottom: 20px;
+}
+
+#houppa-section .event-date {
+    font-family: 'Alice', serif;
+    text-shadow: 1px 1px 8px rgba(255, 255, 255, 0.95),
+                 0 0 20px rgba(255, 255, 255, 0.6);
+    color: #5a4a47;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.event-location {
+    color: #7a6d6a;
+    font-size: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 35px;
+    white-space: pre-line;
+}
+
+#houppa-section .event-location {
+    font-family: 'Alice', serif;
+    text-shadow: 1px 1px 8px rgba(255, 255, 255, 0.95),
+                 0 0 20px rgba(255, 255, 255, 0.6);
+    color: #6a5a57;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    line-height: 0.7;
+}
+
+.event-description {
+    color: #5a524f;
+    font-size: 1.1rem;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    white-space: pre-line;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#houppa-section .event-description {
+    font-family: 'Alice', serif;
+    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.95),
+                 0 0 18px rgba(255, 255, 255, 0.6);
+    color: #5a4a47;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+#houppa-section .event-header .event-description {
+    margin-bottom: 30px !important;
+}
+
+#houppa-section .parents-names {
+    margin: 0px 0 15px 0;
+}
+
+/* ============================================
+   PAGE TOUS LES ÉVÉNEMENTS
+   ============================================ */
+
+.all-events-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: transparent;
+}
+
+.event-section {
+    margin-bottom: 80px;
+    animation: fadeIn 0.8s ease-out;
+    scroll-margin-top: 100px;
+}
+
+.event-section:last-of-type {
+    margin-bottom: 80px;
+}
+
+#houppa-section {
+    position: relative;
+    background-color: #F5EEE8;
+    padding: 0;
+    border-radius: 0;
+    overflow: visible;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 calc(-50vw + 50%);
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+}
+
+#houppa-section .event-page,
+#houppa-section .event-header {
+    position: relative;
+    z-index: 1;
+}
+
+#houppa-section .event-page {
+    background-color: #F5EEE8;
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
+    border-radius: 35px;
+    padding: 0;
+    box-shadow:
+        0 30px 90px rgba(245, 238, 232, 0.15),
+        0 10px 40px rgba(245, 238, 232, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.9),
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 -1px 0 rgba(212, 196, 184, 0.08);
+    position: relative;
+    overflow: hidden;
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+    margin: 60px 5px;
+    border: 2px solid var(--violet-primary);
+    min-height: fit-content;
+}
+
+#houppa-section .event-page::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        135deg,
+        rgba(245, 238, 232, 0.6) 0%,
+        rgba(245, 238, 232, 0.65) 25%,
+        rgba(245, 238, 232, 0.6) 50%,
+        rgba(245, 238, 232, 0.65) 75%,
+        rgba(245, 238, 232, 0.6) 100%
+    );
+    border-radius: 37px;
+    z-index: -1;
+    animation: rotateBorder 8s linear infinite;
+    background-size: 200% 200%;
+}
+
+#houppa-section .event-page::after {
+    display: none;
+}
+
+#houppa-section .event-header {
+    padding: 180px 50px 180px 50px;
+    margin-top: 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Lien itinéraire */
+.event-itinerary-link {
+    margin: 12px 0 20px 0;
+    text-align: center;
+}
+
+.event-itinerary-link a {
+    font-family: 'Alice', serif;
+    font-size: 0.7rem;
+    color: var(--violet-primary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(var(--violet-primary-rgb), 0.4);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.event-itinerary-link a:hover {
+    color: var(--violet-dark);
+    border-bottom-color: var(--violet-dark);
+}
+
+#houppa-section .event-itinerary-link a {
+    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.95),
+                 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .all-events-container {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    #houppa-section {
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    #houppa-section .event-header {
+        padding: 150px 20px 150px 20px;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    #houppa-section .event-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        white-space: nowrap;
+    }
+
+    #houppa-section .event-date {
+        font-size: 1.2rem;
+    }
+
+    #houppa-section .event-location {
+        font-size: 1.1rem;
+    }
+
+    #houppa-section .event-description {
+        font-size: 1rem;
+    }
+
+    #houppa-section {
+        padding: 0 !important;
+        min-height: auto;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        box-sizing: border-box;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        display: block !important;
+    }
+
+    .container,
+    .all-events-container {
+        padding: 20px 0 !important;
+    }
+
+    #houppa-section .event-page {
+        overflow: hidden !important;
+        width: calc(100% - 20px) !important;
+        max-width: calc(100% - 20px) !important;
+        margin: 40px 10px !important;
+        border: 2px solid var(--violet-primary) !important;
+        border-radius: 25px !important;
+        padding: 0 !important;
+    }
+
+    #houppa-section .event-header {
+        padding: 140px 25px 140px 25px;
+        margin-top: 0;
+    }
+
+    .parents-names {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .parents-left {
+        text-align: left !important;
+        padding-left: 5px;
+    }
+
+    .parents-right {
+        text-align: right !important;
+        padding-right: 5px;
+        align-items: flex-end;
+    }
+
+    .couple-names {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    .hebrew-names {
+        gap: 40px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 375px) {
+    #houppa-section .event-title {
+        font-size: 1.8rem;
+        letter-spacing: 1.5px;
+    }
+
+    .couple-names {
+        font-size: 1.6rem;
+        letter-spacing: 0px;
+    }
+
+    .hebrew-names {
+        gap: 30px;
+        font-size: 1.3rem;
+    }
+
+    .parents-names {
+        font-size: 0.85rem;
+        gap: 10px;
+        padding: 0 5px;
+    }
+
+    .parents-left {
+        padding-left: 0;
+    }
+
+    .parents-right {
+        padding-right: 0;
+    }
+}

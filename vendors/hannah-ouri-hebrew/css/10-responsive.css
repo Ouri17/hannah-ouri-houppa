@@ -1,0 +1,153 @@
+/* ============================================
+   RESPONSIVE GLOBAL - RÈGLES TRANSVERSALES
+   ============================================
+   Ce fichier contient UNIQUEMENT :
+   - Les ajustements de layout pour la page d'accueil
+   - Les règles vraiment globales qui ne peuvent pas être dans un module spécifique
+   ============================================ */
+
+/* ============================================
+   AJUSTEMENTS GLOBAUX - CONTAINER
+   ============================================ */
+
+/* Tablettes */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* Téléphones */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+        -webkit-text-size-adjust: 100%;
+        overflow-x: hidden;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 10px 0;
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+    }
+}
+
+/* Petits téléphones (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    .container {
+        padding: 8px;
+    }
+}
+
+/* ============================================
+   LAYOUT PAGE D'ACCUEIL PAR TAILLE D'ÉCRAN
+   ============================================ */
+
+/* iPhone SE (380-390px) */
+@media screen and (min-width: 380px) and (max-width: 390px) {
+    #home.home .logo-section {
+        padding-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    #home.home .home-content {
+        gap: 0 !important;
+        margin-top: 0 !important;
+        padding: 0 20px 35px 20px !important;
+        min-height: auto !important;
+    }
+
+    #home.home .logo-image {
+        margin-top: 4rem !important;
+        margin-bottom: -2rem !important;
+    }
+
+    #home.home .mairie-couple-names {
+        margin-top: 0 !important;
+        margin-bottom: 3rem !important;
+        letter-spacing: 0 !important;
+    }
+
+    #home.home .countdown-section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        gap: 3rem !important;
+    }
+}
+
+/* Petits écrans (≤379px) */
+@media screen and (max-width: 379px) {
+    #home.home .logo-section {
+        padding-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    #home.home .home-content {
+        gap: 0 !important;
+        margin-top: 0 !important;
+        padding: 0 20px 35px 20px !important;
+        min-height: auto !important;
+    }
+
+    #home.home .logo-image {
+        margin-top: 4rem !important;
+        margin-bottom: -2rem !important;
+    }
+
+    #home.home .mairie-couple-names {
+        margin-top: 2rem !important;
+        margin-bottom: 3rem !important;
+        letter-spacing: 0 !important;
+    }
+
+    #home.home .countdown-section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        gap: 3rem !important;
+    }
+}
+
+/* Écrans standards mobile (391-768px) */
+@media screen and (min-width: 391px) and (max-width: 768px) {
+    .home-header {
+        justify-content: flex-start !important;
+        padding-top: 8vh !important;
+    }
+
+    .logo-section {
+        padding-top: 0 !important;
+        margin-bottom: 0.3rem !important;
+    }
+
+    .home-content {
+        gap: 0 !important;
+        padding: 0 20px 35px 20px !important;
+        margin-top: 0 !important;
+    }
+
+    .logo-image {
+        margin-top: 4rem !important;
+        margin-bottom: -2rem !important;
+    }
+
+    .home .mairie-couple-names {
+        margin-top: 2rem !important;
+        margin-bottom: 3rem !important;
+        letter-spacing: 0 !important;
+    }
+
+    .countdown-section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        gap: 3rem !important;
+    }
+}

@@ -1,0 +1,134 @@
+/* ============================================
+   VARIABLES DE COULEURS - VIOLET HARMONIEUX
+   ============================================ */
+
+:root {
+    /* ============================================
+       COULEURS VIOLETTES - MODIFIER ICI UNIQUEMENT
+       ============================================
+       Pour changer toutes les couleurs violettes du site,
+       modifiez uniquement les valeurs ci-dessous.
+       Toutes les couleurs violettes du site utiliseront
+       automatiquement ces variables.
+    */
+    
+    /* Couleurs violettes principales */
+    --violet-primary: #B8A8C8;           /* Violet principal clair - utilisé pour bordures, boutons principaux */
+    --violet-secondary: #C4B4D4;         /* Violet secondaire plus clair - utilisé dans les gradients */
+    --violet-dark: #A08FB0;              /* Violet foncé pour contrastes - utilisé dans les gradients */
+    --violet-light: #D4C4D4;             /* Violet très clair - décorations subtiles */
+    --violet-pink: #E8D4E0;              /* Violet rosé clair - accents doux */
+    --violet-pink-2: #E8C4D8;            /* Violet rosé 2 - boutons hover */
+    --violet-pink-3: #D4A5C8;            /* Violet rosé 3 - gradients */
+    --violet-mauve: #C4B4C4;             /* Mauve clair - textes */
+    
+    /* Couleurs violettes en rgba pour transparences */
+    /* IMPORTANT: Gardez uniquement les valeurs RGB (sans rgba) */
+    --violet-primary-rgb: 150, 130, 170;  /* RGB pour --violet-primary (utilisé avec rgba()) */
+    --violet-secondary-rgb: 170, 150, 190; /* RGB pour --violet-secondary (utilisé avec rgba()) */
+    --violet-dark-rgb: 130, 110, 150;      /* RGB pour --violet-dark (utilisé avec rgba()) */
+}
+
+/* ============================================
+   RESET CSS ET STYLES DE BASE
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', 'Segoe UI', sans-serif;
+    background-color: #F5EEE8;
+    min-height: 100vh;
+    color: #2c2416;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+    position: relative;
+    overflow-x: hidden; /* Empêcher le scroll horizontal */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fond uni sur html aussi pour couvrir toute la page */
+html {
+    background-color: #F5EEE8;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Supprimer body::before pour laisser voir le fond uni */
+body::before {
+    display: none;
+}
+
+/* Bloquer le scroll sur la page d'accueil : pas de défilement vers Chabbat, etc. */
+html.page-home-active,
+body.page-home-active {
+    overflow: hidden !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* La première page doit aller jusqu'en haut : pas de marge au-dessus du fond floral */
+body.page-home-active .container {
+    padding-top: 0 !important;
+}
+
+.page {
+    display: none; /* Cacher toutes les pages par défaut */
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* CORRECTION: S'assurer que les pages actives sont visibles avec une spécificité élevée */
+.page.active {
+    display: block !important;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive pour les pages */
+@media (max-width: 768px) {
+    .page {
+        padding-top: 80px;
+    }
+    
+    .page.active {
+        display: block !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .page {
+        padding-top: 70px;
+    }
+    
+    .page.active {
+        display: block !important;
+    }
+}
+
+.page.home {
+    padding-top: 0;
+}
+
+/* CORRECTION: S'assurer que la page d'accueil avec classe active est visible au chargement */
+.page.home.active {
+    display: block !important;
+}

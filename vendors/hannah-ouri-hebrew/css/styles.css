@@ -1,0 +1,14 @@
+/* ============================================
+   FICHIER PRINCIPAL - IMPORTS DES MODULES CSS
+   ============================================
+   Ce fichier importe tous les modules CSS dans l'ordre
+   pour maintenir la cascade et la spécificité correctes.
+   ============================================ */
+
+@import url('01-variables.css');
+@import url('02-animations.css');
+@import url('03-navigation.css');
+@import url('04-home.css');
+@import url('05-events.css');
+@import url('06-forms.css');
+@import url('10-responsive.css');
