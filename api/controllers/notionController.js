@@ -13,7 +13,7 @@ const sendToNotion = async (req, res, next) => {
     try {
         // Vérifier si le webhook Notion est configuré
         const webhookUrl = process.env.NOTION_WEBHOOK_URL;
-
+        
         if (!webhookUrl) {
             return res.json({
                 success: true,
@@ -38,27 +38,24 @@ const sendToNotion = async (req, res, next) => {
                 'Content-Type': 'application/json'
             }
         });
-
+        
         // Si c'est une réponse d'invitation, envoyer un email récapitulatif à l'admin
         if (isInvitationResponse(data)) {
-            // Envoyer en arrière-plan (ne pas bloquer la réponse)
-            setTimeout(() => {
-                sendAdminInvitationResponseEmail({
-                    nom: data.nom,
-                    prenom: data.prenom,
-                    eventType: data.eventType,
-                    attendance: data.attendance,
-                    guests: data.guests,
-                    message: data.message,
-                    transporthouppa: data.transporthouppa,
-                    transportChabbat: data.transportChabbat,
-                    dateFormatted: data.dateFormatted
-                }).catch(error => {
-                    // Erreur silencieuse - ne pas faire échouer l'envoi à Notion
-                });
-            }, 500); // Délai de 500ms pour éviter le rate limit
+            await sendAdminInvitationResponseEmail({
+                nom: data.nom,
+                prenom: data.prenom,
+                eventType: data.eventType,
+                attendance: data.attendance,
+                guests: data.guests,
+                message: data.message,
+                transporthouppa: data.transporthouppa,
+                transportChabbat: data.transportChabbat,
+                dateFormatted: data.dateFormatted
+            }).catch(() => {
+                // Erreur silencieuse : on ne fait pas échouer la réponse si l'email échoue
+            });
         }
-
+        
         return res.json({
             success: true,
             remote: true,
@@ -67,7 +64,7 @@ const sendToNotion = async (req, res, next) => {
         });
     } catch (error) {
         const eventType = req.body?.eventType || 'inconnu';
-
+        
         // Si c'est une erreur axios, extraire plus d'infos
         if (error.response) {
             return res.status(error.response.status).json({
@@ -78,7 +75,7 @@ const sendToNotion = async (req, res, next) => {
                 statusCode: error.response.status
             });
         }
-
+        
         return res.status(500).json({
             success: false,
             message: 'Erreur lors de l\'envoi à Notion',
