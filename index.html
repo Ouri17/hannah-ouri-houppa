@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
@@ -8,14 +9,17 @@
     <meta name="theme-color" content="#F5EEE8">
     <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <title>Mariage Hannah & Ouri</title>
-    
+
     <!-- Google Fonts - Polices élégantes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Lato:wght@300;400;700&family=Alice&family=Charm:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Lato:wght@300;400;700&family=Alice&family=Charm:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <!-- Musique de fond -->
     <audio id="bgMusic" loop>
@@ -24,12 +28,14 @@
 
     <!-- Bouton de contrôle musique -->
     <button id="musicToggle" class="music-toggle" onclick="toggleMusic()" aria-label="Activer/Désactiver la musique">
-        <svg class="music-icon music-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="music-icon music-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <line x1="23" y1="9" x2="17" y2="15"></line>
             <line x1="17" y1="9" x2="23" y2="15"></line>
         </svg>
-        <svg class="music-icon music-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="music-icon music-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
@@ -89,7 +95,7 @@
                                 <div class="countdown-label">MINUTES</div>
                             </div>
                         </div>
-                        
+
                         <button class="home-button" onclick="showPage('all-events')">
                             VOIR L'INVITATION
                         </button>
@@ -110,7 +116,7 @@
                         <img src="images/houppa-haut.svg" alt="" class="floral-decor floral-top" aria-hidden="true">
                         <div class="event-header">
                             <h2 class="event-title">LA HOUPPA</h2>
-                            
+
                             <!-- Noms des parents/grands-parents -->
                             <div class="parents-names">
                                 <div class="parents-left">
@@ -123,41 +129,43 @@
                                     <div>Myriam &amp; Eric Strouk</div>
                                 </div>
                             </div>
-                            
+
                             <div class="event-description">
                                 Ont la joie de vous faire part du mariage de leurs petits-enfants et enfants
                             </div>
-                            
+
                             <div class="couple-names">
                                 HANNAH &amp; OURI
                             </div>
-                            
+
                             <div class="hebrew-names">
                                 <span class="hebrew-name-left">אנה רוזה</span>
                                 <span class="hebrew-name-right">אורי חיים משה</span>
                             </div>
-                            
+
                             <div class="event-description">
                                 Et sont honorés de vous convier à la cérémonie religieuse qui sera célébrée
                             </div>
-                            
+
                             <div class="event-date">
                                 Mercredi 12 août 2026<br>
                                 29 Av 5786 - כ״ט אב תשפ״ו<br>
                                 À 18h00
                             </div>
-                            
+
                             <div class="event-location">
                                 À la salle Terra, Césarée<br>
                                 טרה, קיסריה
                             </div>
-                            <div class="event-itinerary-link"><a href="#" onclick="openItinerary(); return false;">Voir l'itinéraire</a></div>
-                            
+                            <div class="event-itinerary-link"><a href="#" onclick="openItinerary(); return false;">Voir
+                                    l'itinéraire</a></div>
+
                             <div class="event-description">
                                 La Houppa sera suivie de la soirée
                             </div>
                             <div class="grandparents-tribute">
-                                Une pensée particulière pour nos grands-parents qui veillent sur nous en ce jour si particulier : Mamie Flora, Mamie Rachel, Papi Nissim, Papi André, Mamie Huguette
+                                Une pensée particulière pour nos grands-parents qui veillent sur nous en ce jour si
+                                particulier : Mamie Flora, Mamie Rachel, Papi Nissim, Papi André, Mamie Huguette
                             </div>
                         </div>
                     </div>
@@ -177,7 +185,7 @@
                                     <label for="unified-nom">Nom *</label>
                                     <input type="text" id="unified-nom" name="nom" required>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="unified-prenom">Prénom *</label>
                                     <input type="text" id="unified-prenom" name="prenom" required>
@@ -185,25 +193,26 @@
                             </div>
 
                             <!-- HOUPPA -->
-                            <div class="form-section event-response-section event-response-compact">
-                                <h4 class="section-title section-title-compact">HOUPPA</h4>
-                                <div class="form-group form-group-compact">
+                            <div class="form-section">
+
+                                <div class="form-group">
                                     <label for="houppa-attendance-unified">Assistera à la Houppa *</label>
-                                    <select id="houppa-attendance-unified" name="houppa-attendance" required onchange="toggleGuestsField('houppa')">
+                                    <select id="houppa-attendance-unified" name="houppa-attendance" required>
                                         <option value="">Sélectionnez...</option>
                                         <option value="oui">Oui</option>
                                         <option value="non">Non</option>
                                     </select>
                                 </div>
-                                
-                                <div class="form-group guests-field guests-field-compact" id="houppa-guests-group" style="display: none;">
+
+                                <div class="form-group" id="houppa-guests-group">
                                     <label for="houppa-guests-unified">Nombre de personnes</label>
-                                    <input type="number" id="houppa-guests-unified" name="houppa-guests" min="1" value="1">
+                                    <input type="number" id="houppa-guests-unified" name="houppa-guests" min="1"
+                                        value="1">
                                 </div>
-                                
-                                <div class="form-group form-group-compact" id="houppa-transport-group" style="display: none;">
+
+                                <div class="form-group" id="houppa-transport-group">
                                     <label>Participation à l'événement avec transport en bus (optionnel):</label>
-                                    <div class="radio-group radio-group-compact">
+                                    <div class="radio-group">
                                         <label>
                                             <input type="checkbox" name="transport-houppa" value="raanana">
                                             Oui, depuis Raanana
@@ -218,12 +227,12 @@
 
                             <!-- Message -->
                             <div class="form-section form-section-compact">
-                                <div class="form-group form-group-compact">
+                                <div class="form-group">
                                     <label for="unified-message">Message pour les mariés</label>
                                     <textarea id="unified-message" name="message" rows="3"></textarea>
                                 </div>
                             </div>
-                            
+
                             <button type="submit" class="submit-button">Envoyer mes réponses</button>
                         </form>
                     </div>
@@ -232,7 +241,8 @@
             </div>
         </div>
 
-    <script src="js/api.js"></script>
-    <script src="js/script.js"></script>
+        <script src="js/api.js"></script>
+        <script src="js/script.js"></script>
 </body>
+
 </html>

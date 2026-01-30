@@ -82,7 +82,7 @@ function toggleMusic() {
         music.pause();
         toggleBtn.classList.remove('playing');
     } else {
-        music.play().catch(() => {});
+        music.play().catch(() => { });
         toggleBtn.classList.add('playing');
     }
     isMusicPlaying = !isMusicPlaying;
@@ -218,29 +218,7 @@ function updateCountdown() {
 // ============================================
 // FORMULAIRE HOUPPA
 // ============================================
-function toggleGuestsField(eventType) {
-    const attendanceSelect = document.getElementById(`${eventType}-attendance-unified`);
-    const guestsGroup = document.getElementById(`${eventType}-guests-group`);
-    const guestsInput = document.getElementById(`${eventType}-guests-unified`);
 
-    if (attendanceSelect && guestsGroup) {
-        if (attendanceSelect.value === 'oui') {
-            guestsGroup.style.display = 'block';
-            guestsInput.required = true;
-            const transportGroup = document.getElementById('houppa-transport-group');
-            if (transportGroup) transportGroup.style.display = 'block';
-        } else {
-            guestsGroup.style.display = 'none';
-            guestsInput.required = false;
-            guestsInput.value = '1';
-            const transportGroup = document.getElementById('houppa-transport-group');
-            if (transportGroup) {
-                transportGroup.style.display = 'none';
-                transportGroup.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-            }
-        }
-    }
-}
 
 async function submitAllResponses(event) {
     event.preventDefault();
@@ -293,11 +271,8 @@ async function submitAllResponses(event) {
     alert('✅ Vos réponses ont été enregistrées avec succès !');
 
     event.target.reset();
-    const houppaGuestsGroup = document.getElementById('houppa-guests-group');
-    if (houppaGuestsGroup) houppaGuestsGroup.style.display = 'none';
     const houppaTransportGroup = document.getElementById('houppa-transport-group');
     if (houppaTransportGroup) {
-        houppaTransportGroup.style.display = 'none';
         houppaTransportGroup.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -328,7 +303,7 @@ function loadFromLocalStorage() {
 // ============================================
 // INITIALISATION
 // ============================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadFromLocalStorage();
     showPage('home');
     updateCountdown();
@@ -336,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Fermer le menu mobile en cliquant à l'extérieur
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     const mobileNav = document.getElementById('mobileNav');
     const mobileBtn = document.querySelector('.mobile-menu-btn');
 
