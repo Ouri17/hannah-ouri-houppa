@@ -39,6 +39,11 @@ const sendToNotion = async (req, res, next) => {
             }
         });
         
+        // Sync vers le dashboard admin (fire & forget)
+        if (process.env.ADMIN_BACKEND_URL && isInvitationResponse(data)) {
+            axios.post(`${process.env.ADMIN_BACKEND_URL}/api/guests/rsvp`, data).catch(() => {});
+        }
+
         // Si c'est une réponse d'invitation, envoyer un email récapitulatif à l'admin
         if (isInvitationResponse(data)) {
             // Envoyer en arrière-plan (ne pas bloquer la réponse)
