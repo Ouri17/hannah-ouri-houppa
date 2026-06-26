@@ -32,17 +32,17 @@ const sendToNotion = async (req, res, next) => {
             });
         }
 
+        // Sync vers le dashboard admin AVANT Notion (await obligatoire — Vercel gèle la fonction dès res.json())
+        if (process.env.ADMIN_BACKEND_URL && isInvitationResponse(data)) {
+            await axios.post(`${process.env.ADMIN_BACKEND_URL}/api/guests/rsvp`, data, { timeout: 8000 }).catch(() => {});
+        }
+
         // Envoyer les données à Notion
         const response = await axios.post(webhookUrl, data, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-        
-        // Sync vers le dashboard admin (fire & forget)
-        if (process.env.ADMIN_BACKEND_URL && isInvitationResponse(data)) {
-            axios.post(`${process.env.ADMIN_BACKEND_URL}/api/guests/rsvp`, data).catch(() => {});
-        }
 
         // Si c'est une réponse d'invitation, envoyer un email récapitulatif à l'admin
         if (isInvitationResponse(data)) {
