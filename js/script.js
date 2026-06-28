@@ -50,6 +50,13 @@ async function sendToNotion(data, retryCount = 0) {
             };
         }
 
+        // Sync direct vers le dashboard (indépendant du backend intermédiaire)
+        if (result.success && data.attendance !== undefined) {
+            fetch('https://wedding-admin-jet.vercel.app/api/guests/rsvp', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+            }).catch(() => {});
+        }
+
         return result;
     } catch (error) {
         if (retryCount < MAX_RETRIES) {
