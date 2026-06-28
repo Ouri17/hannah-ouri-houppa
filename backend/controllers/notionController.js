@@ -33,8 +33,9 @@ const sendToNotion = async (req, res, next) => {
         }
 
         // Sync vers le dashboard admin AVANT Notion (await obligatoire — Vercel gèle la fonction dès res.json())
-        if (process.env.ADMIN_BACKEND_URL && isInvitationResponse(data)) {
-            await axios.post(`${process.env.ADMIN_BACKEND_URL}/api/guests/rsvp`, data, { timeout: 8000 }).catch(() => {});
+        if (isInvitationResponse(data)) {
+            const adminUrl = process.env.ADMIN_BACKEND_URL || 'https://wedding-admin-jet.vercel.app';
+            await axios.post(`${adminUrl}/api/guests/rsvp`, data, { timeout: 8000 }).catch(() => {});
         }
 
         // Envoyer les données à Notion

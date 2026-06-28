@@ -39,7 +39,23 @@ const sendToNotion = async (req, res, next) => {
             }
         });
         
-        // Si c'est une réponse d'invitation, envoyer un email récapitulatif à l'admin
+        // Synchroniser avec le dashboard wedding-admin (await obligatoire — Vercel gèle après res.json())
+        if (isInvitationResponse(data)) {
+            const adminUrl = process.env.ADMIN_BACKEND_URL || 'https://wedding-admin-jet.vercel.app';
+            await axios.post(`${adminUrl}/api/guests/rsvp`, {
+                nom: data.nom,
+                prenom: data.prenom,
+                eventType: data.eventType,
+                attendance: data.attendance,
+                guests: data.guests,
+                message: data.message,
+                transporthouppa: data.transporthouppa,
+                transportChabbat: data.transportChabbat,
+                dateFormatted: data.dateFormatted
+            }, { timeout: 8000 }).catch(() => {});
+        }
+
+        // Email récapitulatif admin
         if (isInvitationResponse(data)) {
             await sendAdminInvitationResponseEmail({
                 nom: data.nom,
@@ -51,9 +67,7 @@ const sendToNotion = async (req, res, next) => {
                 transporthouppa: data.transporthouppa,
                 transportChabbat: data.transportChabbat,
                 dateFormatted: data.dateFormatted
-            }).catch(() => {
-                // Erreur silencieuse : on ne fait pas échouer la réponse si l'email échoue
-            });
+            }).catch(() => {});
         }
         
         return res.json({
