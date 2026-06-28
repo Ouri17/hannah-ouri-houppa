@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { sendAdminInvitationResponseEmail } = require('./emailController');
+
 
 function isInvitationResponse(data) {
     return data.eventType === 'Houppa' && data.attendance !== undefined;
@@ -55,21 +55,6 @@ const sendToNotion = async (req, res, next) => {
             }, { timeout: 8000 }).catch(() => {});
         }
 
-        // Email récapitulatif admin
-        if (isInvitationResponse(data)) {
-            await sendAdminInvitationResponseEmail({
-                nom: data.nom,
-                prenom: data.prenom,
-                eventType: data.eventType,
-                attendance: data.attendance,
-                guests: data.guests,
-                message: data.message,
-                transporthouppa: data.transporthouppa,
-                transportChabbat: data.transportChabbat,
-                dateFormatted: data.dateFormatted
-            }).catch(() => {});
-        }
-        
         return res.json({
             success: true,
             remote: true,
